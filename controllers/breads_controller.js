@@ -20,6 +20,9 @@ breads.get('/:arrayIndex', (req, res) => {
     res.render('Show', {
       bread:Bread[req.params.arrayIndex]
     })
-  } 
-})  
+  } else {
+    res.render('404')
+  }
+})
+
 module.exports = breads
