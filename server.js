@@ -12,6 +12,8 @@ app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
 // MIDDLEWARE
+app.use(methodOverride('_method'))
+
 app.use(express.urlencoded({extended: true}))
 
 // ROUTES
@@ -27,6 +29,9 @@ app.get('/', (req, res) => {
 app.get('*', (req, res) => {
   res.send('404')
 })
+
+// DEPENDENCIES
+const methodOverride = require('method-override')
 
 // LISTEN
 app.listen(PORT, () => {
